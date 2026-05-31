@@ -3,6 +3,8 @@
 
 - 🔭 I’m currently working on **Django and REST API projects to strengthen my backend development skills**
 
+- 📫 How to reach me **atiq.sqa29@gmail.com**
+
 <h3 align="left">Connect with me:</h3>
 <p align="left">
 <a href="https://linkedin.com/in/atikul-islam-081b07237" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="atikul-islam-081b07237" height="30" width="40" /></a>
