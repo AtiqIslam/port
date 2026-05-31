@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Blog | Atiqul Islam Rahad{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <p class="eyebrow">Blog</p>
+        <h1>Learning notes, Django patterns, and backend progress.</h1>
+    </div>
+</section>
+<section class="section-padding">
+    <div class="container">
+        <div class="row g-4">
+            {% for blog in blogs %}
+                {% include "partials/blog_card.html" %}
+            {% empty %}
+                <div class="col-12"><div class="empty-state">No blog posts yet. Add one through the admin dashboard.</div></div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

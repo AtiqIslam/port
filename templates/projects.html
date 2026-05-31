@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Projects | Atiqul Islam Rahad{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <p class="eyebrow">Projects</p>
+        <h1>Django, DRF, and PostgreSQL projects.</h1>
+    </div>
+</section>
+<section class="section-padding">
+    <div class="container">
+        <div class="row g-4">
+            {% for project in projects %}
+                {% include "partials/project_card.html" %}
+            {% empty %}
+                <div class="col-12"><div class="empty-state">No projects yet. Add one through the admin dashboard.</div></div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

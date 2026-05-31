@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section id="home" class="hero-section d-flex align-items-center">
+    <div class="container">
+        <div class="row align-items-center g-5 min-vh-100 py-5">
+            <div class="col-lg-7">
+                <p class="eyebrow">Available for Junior Django Developer roles</p>
+                <h1 class="display-3 fw-bold">Atiqul Islam Rahad</h1>
+                <h2 class="typing-line">I build <span id="typedText"></span></h2>
+                <p class="lead mt-4">Junior Backend Developer focused on Django, DRF, PostgreSQL, and clean API-driven web applications.</p>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <a href="{% url 'projects' %}" class="btn btn-primary btn-lg"><i class="bi bi-window-stack me-2"></i>View Projects</a>
+                    <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg"><i class="bi bi-send me-2"></i>Hire Me</a>
+                    <a href="{% url 'resume-download' %}" class="btn btn-light btn-lg"><i class="bi bi-download me-2"></i>Resume</a>
+                </div>
+                <div class="social-links mt-4">
+                    <a href="https://github.com/" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                    <a href="https://www.linkedin.com/" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="mailto:atiqul@example.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-5 text-center">
+                <div class="profile-frame mx-auto">
+                    <img src="{% static 'images/profile-placeholder.svg' %}" alt="Atiqul Islam Rahad" class="img-fluid profile-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="section-padding">
+    <div class="container">
+        <div class="section-heading">
+            <p>About Me</p>
+            <h2>Backend-minded, product-aware, and always learning.</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="glass-card h-100">
+                    <h3>Professional Summary</h3>
+                    <p>I am a Junior Backend Developer specializing in Django and Django REST Framework. I enjoy building maintainable APIs, database-backed applications, and responsive web interfaces that connect business needs with reliable engineering.</p>
+                    <h3>Career Objective</h3>
+                    <p>To grow as a Django developer by contributing to practical backend systems, learning from strong teams, and writing code that is secure, testable, and easy to extend.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="glass-card h-100">
+                    <h3>Education</h3>
+                    <p>Bachelor-level computer science foundation with continued self-directed learning in Python, web development, REST APIs, SQL, Git, and deployment practices.</p>
+                    <h3>Experience</h3>
+                    <p>Hands-on portfolio and practice projects using Django, DRF, PostgreSQL, Bootstrap, authentication, admin dashboards, CRUD APIs, and form handling.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="skills" class="section-padding muted-band">
+    <div class="container">
+        <div class="section-heading">
+            <p>Skills</p>
+            <h2>Tools I use to build dependable web systems.</h2>
+        </div>
+        <div class="row g-4">
+            {% for skill, value in skills %}
+            <div class="col-md-6">
+                <div class="skill-item">
+                    <div class="d-flex justify-content-between mb-2">
+                        <strong>{{ skill }}</strong>
+                        <span>{{ value }}%</span>
+                    </div>
+                    <div class="progress" role="progressbar" aria-label="{{ skill }}" aria-valuenow="{{ value }}" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar" style="width: {{ value }}%"></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="section-heading d-flex flex-column flex-md-row justify-content-between gap-3">
+            <div>
+                <p>Projects</p>
+                <h2>Recent Django work.</h2>
+            </div>
+            <a class="btn btn-outline-primary align-self-md-end" href="{% url 'projects' %}">All Projects</a>
+        </div>
+        <div class="row g-4">
+            {% for project in projects %}
+                {% include "partials/project_card.html" %}
+            {% empty %}
+                <div class="col-12"><div class="empty-state">Add projects from Django admin or POST to <code>/api/projects/</code>.</div></div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section-padding muted-band">
+    <div class="container">
+        <div class="section-heading">
+            <p>Blog</p>
+            <h2>Latest notes and learning logs.</h2>
+        </div>
+        <div class="row g-4">
+            {% for blog in blogs %}
+                {% include "partials/blog_card.html" %}
+            {% empty %}
+                <div class="col-12"><div class="empty-state">Publish blogs from Django admin or POST to <code>/api/blogs/</code>.</div></div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section-padding contact-strip">
+    <div class="container text-center">
+        <h2>Have a Django project or backend role?</h2>
+        <p class="lead">Let’s talk about APIs, admin dashboards, databases, and clean delivery.</p>
+        <a href="{% url 'contact' %}#contact" class="btn btn-light btn-lg"><i class="bi bi-chat-dots me-2"></i>Contact Me</a>
+    </div>
+</section>
+{% endblock %}

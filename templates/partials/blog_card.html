@@ -1,0 +1,14 @@
+<div class="col-md-6 col-xl-4">
+    <article class="card blog-card h-100">
+        {% if blog.image %}
+            <img src="{{ blog.image.url }}" class="card-img-top" alt="{{ blog.title }}">
+        {% else %}
+            <div class="blog-placeholder"><i class="bi bi-journal-code"></i></div>
+        {% endif %}
+        <div class="card-body">
+            <time class="small text-muted">{{ blog.created_at|date:"M d, Y" }}</time>
+            <h3 class="card-title mt-2">{{ blog.title }}</h3>
+            <p class="card-text">{{ blog.content|truncatewords:28 }}</p>
+        </div>
+    </article>
+</div>
