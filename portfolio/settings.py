@@ -12,8 +12,11 @@ DEBUG = str(config("DJANGO_DEBUG", default=config("DEBUG", default="True"))).low
     "yes",
     "on",
 }
-ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="127.0.0.1,localhost", cast=Csv())
-
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "port-bdy9.onrender.com",
+]
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
